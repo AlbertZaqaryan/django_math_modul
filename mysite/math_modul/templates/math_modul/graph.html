@@ -1,0 +1,42 @@
+{% extends 'math_modul/base.html' %}
+
+{% block title %}Graph{% endblock %}
+
+{% block name %}Graph Page{% endblock %}
+
+
+{% block body %}
+
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                x: <input type="text" name="x" id="">
+            </p>
+            <p>
+                k: <input type="number" name="k" id="">
+            </p>
+            <p>
+                b: <input type="number" name="b" id="">
+            </p>
+            <button type="submit">Graph</button>
+        </form>
+    </div>
+
+<div>
+    <h4>Result</h4>
+
+    <p>
+        X = {{ res1 }}
+    </p>
+    <p>
+        y = {{ res2 }}
+    </p>
+
+</div>
+
+    <img src="data:image/png;base64,{{ data }}" width="900px" alt="">
+
+
+
+{% endblock %}

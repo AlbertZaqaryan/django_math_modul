@@ -1,0 +1,30 @@
+{% extends 'math_modul/base.html' %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block name %}Calculator Page{% endblock %}
+
+{% block body %}
+
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            Number1: <input type="number" name="number1" id="">
+        </p>
+        <p>
+            Char: <input type="text" name="char" id="">
+        </p>
+        <p>
+            Number2: <input type="number" name="number2" id="">
+        </p>
+        <button type="submit">Calculate</button>
+    </form>
+</div>
+
+<div>
+    <h4>Result</h4>
+    <hr>
+    <p>Result = {{ res }}</p>
+</div>
+{% endblock %}
