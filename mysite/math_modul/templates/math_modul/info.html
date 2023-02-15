@@ -1,0 +1,27 @@
+{% extends 'math_modul/base.html' %}
+
+{% block title %}Info{% endblock %}
+
+{% block name %}Info Page{% endblock %}
+
+
+
+{% block body %}
+<div>
+    <form action="{% url 'info' %}">
+        <input type="text" placeholder="Search" name="search" id="">
+        <p>
+            <button type="submit">Search</button>
+        </p>
+
+    </form>
+</div>
+
+
+<div>
+    {% for i in category_list %}
+        <a href="{% url 'info_modul' i.id %}"><button>{{ i.name }}</button></a>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'math_modul/base.html' %}
+
+{% block title %}Info modul{% endblock %}
+
+{% block name %}Info modul Page{% endblock %}
+
+
+{% block body %}
+
+<div>
+    <div>
+        {% for i in info_list  %}
+            <form action="{% url 'info_modul' i.id %}">
+                <input type="text" placeholder="Search" name="search" id="">
+                <p>
+                    <button type="submit">Search</button>
+                </p>
+        
+            </form>
+        {% endfor %}
+    </div>
+    {% if not request.POST %}
+        {% for i in info_list  %}
+            {% for j in i.category_modul.all %}
+                <h1>{{ j.name }}</h1>
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <h1>OK</h1>
+    {% endif %}
+</div>
+
+{% endblock %}
